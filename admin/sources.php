@@ -21,7 +21,7 @@ $current = file_exists($path) ? file_get_contents($path) : "[]";
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="/assets/app.css" />
+  <link rel="stylesheet" href="../assets/app.css" />
   <title>源管理</title>
 </head>
 <body>
@@ -29,21 +29,21 @@ $current = file_exists($path) ? file_get_contents($path) : "[]";
     <header class="header">
       <div class="header-content">
         <div class="header-top">
-          <a class="brand" href="/home.php">VOD DEMO</a>
+          <a class="brand" href="../home.php">VOD DEMO</a>
           <div class="header-actions">
-            <a class="header-link" href="/home.php">首页</a>
-            <a class="header-link" href="/search.php">搜索</a>
-            <a class="header-link" href="/admin/sources.php">源管理</a>
+            <a class="header-link" href="../home.php">首页</a>
+            <a class="header-link" href="../search.php">搜索</a>
+            <a class="header-link" href="sources.php">源管理</a>
           </div>
         </div>
         <nav class="nav">
-          <a class="nav-item" href="/home.php">首页</a>
-          <a class="nav-item" href="/search.php?type=电影片">电影片</a>
-          <a class="nav-item" href="/search.php?type=连续剧">连续剧</a>
-          <a class="nav-item" href="/search.php?type=动漫片">动漫片</a>
-          <a class="nav-item" href="/search.php?type=综艺片">综艺片</a>
-          <a class="nav-item" href="/search.php?type=短剧">短剧</a>
-          <a class="nav-item active" href="/admin/sources.php">源管理</a>
+          <a class="nav-item" href="../home.php">首页</a>
+          <a class="nav-item" href="../search.php?type=电影片">电影片</a>
+          <a class="nav-item" href="../search.php?type=连续剧">连续剧</a>
+          <a class="nav-item" href="../search.php?type=动漫片">动漫片</a>
+          <a class="nav-item" href="../search.php?type=综艺片">综艺片</a>
+          <a class="nav-item" href="../search.php?type=短剧">短剧</a>
+          <a class="nav-item active" href="sources.php">源管理</a>
         </nav>
       </div>
     </header>
@@ -57,7 +57,7 @@ $current = file_exists($path) ? file_get_contents($path) : "[]";
         <textarea name="json" class="textarea" spellcheck="false"><?= h($current) ?></textarea>
         <div class="actions">
           <button class="btn" type="submit">保存</button>
-          <a class="btn ghost" href="/home.php">返回</a>
+          <a class="btn ghost" href="../home.php">返回</a>
         </div>
       </form>
     </main>

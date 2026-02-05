@@ -22,7 +22,7 @@ $d = $p->detail($id);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="assets/app.css">
   <title><?=h($d['title'] ?? 'Detail')?> VOD DEMO</title>
 </head>
 <body>
@@ -30,24 +30,24 @@ $d = $p->detail($id);
   <header class="header">
     <div class="header-content">
       <div class="header-top">
-        <a href="/home.php" class="brand">VOD DEMO</a>
-        <form class="searchbar" action="/search.php" method="get">
+        <a href="home.php" class="brand">VOD DEMO</a>
+        <form class="searchbar" action="search.php" method="get">
           <input name="q" placeholder="搜索影片 / 剧集..." />
           <button type="submit">搜索</button>
         </form>
         <div class="header-actions">
-          <a href="/home.php" class="header-link">首页</a>
-          <a href="/search.php" class="header-link">搜索</a>
-          <a href="/admin/sources.php" class="header-link">源管理</a>
+          <a href="home.php" class="header-link">首页</a>
+          <a href="search.php" class="header-link">搜索</a>
+          <a href="admin/sources.php" class="header-link">源管理</a>
         </div>
       </div>
       <nav class="nav">
-        <a class="nav-item" href="/home.php">首页</a>
-        <a class="nav-item" href="/search.php?type=电影片">电影片</a>
-        <a class="nav-item" href="/search.php?type=连续剧">连续剧</a>
-        <a class="nav-item" href="/search.php?type=动漫片">动漫片</a>
-        <a class="nav-item" href="/search.php?type=综艺片">综艺片</a>
-        <a class="nav-item" href="/search.php?type=短剧">短剧</a>
+        <a class="nav-item" href="home.php">首页</a>
+        <a class="nav-item" href="search.php?type=电影片">电影片</a>
+        <a class="nav-item" href="search.php?type=连续剧">连续剧</a>
+        <a class="nav-item" href="search.php?type=动漫片">动漫片</a>
+        <a class="nav-item" href="search.php?type=综艺片">综艺片</a>
+        <a class="nav-item" href="search.php?type=短剧">短剧</a>
       </nav>
     </div>
   </header>
@@ -82,7 +82,7 @@ $d = $p->detail($id);
         <h2 class="h2">播放列表</h2>
         <div class="episodes-grid">
           <?php foreach ($d['episodes'] as $ep): ?>
-            <a class="episode-btn" href="/play.php?source=<?=urlencode($source)?>&id=<?=urlencode($id)?>&ep=<?=urlencode($ep['ep'] ?? '1')?>">
+            <a class="episode-btn" href="play.php?source=<?=urlencode($source)?>&id=<?=urlencode($id)?>&ep=<?=urlencode($ep['ep'] ?? '1')?>">
               <?=h($ep['name'] ?? $ep['ep'] ?? '播放')?>
             </a>
           <?php endforeach; ?>

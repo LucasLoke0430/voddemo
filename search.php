@@ -87,7 +87,7 @@ if ($q !== '' || $type !== '') {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="assets/app.css">
   <title>VOD DEMO</title>
 </head>
 <body>
@@ -95,24 +95,24 @@ if ($q !== '' || $type !== '') {
   <header class="header">
     <div class="header-content">
       <div class="header-top">
-        <a href="/home.php" class="brand">VOD DEMO</a>
-        <form class="searchbar" action="/search.php" method="get">
+        <a href="home.php" class="brand">VOD DEMO</a>
+        <form class="searchbar" action="search.php" method="get">
           <input name="q" value="<?=h($q)?>" placeholder="搜索影片 / 剧集..." />
           <button type="submit">搜索</button>
         </form>
         <div class="header-actions">
-          <a href="/home.php" class="header-link">首页</a>
-          <a href="/search.php" class="header-link">搜索</a>
-          <a href="/admin/sources.php" class="header-link">源管理</a>
+          <a href="home.php" class="header-link">首页</a>
+          <a href="search.php" class="header-link">搜索</a>
+          <a href="admin/sources.php" class="header-link">源管理</a>
         </div>
       </div>
       <nav class="nav">
-        <a class="nav-item" href="/home.php">首页</a>
-        <a class="nav-item <?=$type === '电影片' ? 'active' : ''?>" href="/search.php?type=电影片">电影片</a>
-        <a class="nav-item <?=$type === '连续剧' ? 'active' : ''?>" href="/search.php?type=连续剧">连续剧</a>
-        <a class="nav-item <?=$type === '动漫片' ? 'active' : ''?>" href="/search.php?type=动漫片">动漫片</a>
-        <a class="nav-item <?=$type === '综艺片' ? 'active' : ''?>" href="/search.php?type=综艺片">综艺片</a>
-        <a class="nav-item <?=$type === '短剧' ? 'active' : ''?>" href="/search.php?type=短剧">短剧</a>
+        <a class="nav-item" href="home.php">首页</a>
+        <a class="nav-item <?=$type === '电影片' ? 'active' : ''?>" href="search.php?type=电影片">电影片</a>
+        <a class="nav-item <?=$type === '连续剧' ? 'active' : ''?>" href="search.php?type=连续剧">连续剧</a>
+        <a class="nav-item <?=$type === '动漫片' ? 'active' : ''?>" href="search.php?type=动漫片">动漫片</a>
+        <a class="nav-item <?=$type === '综艺片' ? 'active' : ''?>" href="search.php?type=综艺片">综艺片</a>
+        <a class="nav-item <?=$type === '短剧' ? 'active' : ''?>" href="search.php?type=短剧">短剧</a>
       </nav>
     </div>
   </header>
@@ -137,7 +137,7 @@ if ($q !== '' || $type !== '') {
 
     <div class="grid">
       <?php foreach($items as $it): ?>
-        <a class="card" href="/detail.php?source=<?=urlencode($it['sourceKey'] ?? '')?>&id=<?=urlencode($it['id'] ?? '')?>">
+        <a class="card" href="detail.php?source=<?=urlencode($it['sourceKey'] ?? '')?>&id=<?=urlencode($it['id'] ?? '')?>">
           <img class="poster" src="<?=h($it['poster'] ?? '')?>" alt="<?=h($it['title'] ?? '')?>" loading="lazy">
           <div class="card-info">
             <div class="t"><?=h($it['title'] ?? '')?></div>
