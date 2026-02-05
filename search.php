@@ -88,14 +88,14 @@ if ($q !== '' || $type !== '') {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/assets/app.css">
-  <title>搜索 - 免费短视频分享大全</title>
+  <title>VOD DEMO</title>
 </head>
 <body>
 <div class="layout">
   <header class="header">
     <div class="header-content">
       <div class="header-top">
-        <a href="/home.php" class="brand">免费短视频分享大全</a>
+        <a href="/home.php" class="brand">VOD DEMO</a>
         <form class="searchbar" action="/search.php" method="get">
           <input name="q" value="<?=h($q)?>" placeholder="搜索影片 / 剧集..." />
           <button type="submit">搜索</button>
