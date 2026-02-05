@@ -1,0 +1,112 @@
+:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+body { margin:0; background:#0b1220; color:#e5e7eb; }
+.layout { display:flex; min-height:100vh; }
+.sidebar { width:220px; background:#0f172a; padding:16px; border-right:1px solid rgba(255,255,255,.06); }
+.brand { font-weight:800; font-size:20px; margin-bottom:16px; }
+.nav { display:block; padding:10px 12px; border-radius:10px; color:#cbd5e1; text-decoration:none; margin-bottom:6px; }
+.nav.active, .nav:hover { background:rgba(59,130,246,.12); color:#fff; }
+.main { flex:1; padding:18px 22px; }
+.topbar { display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:16px; }
+.searchbar { display:flex; gap:8px; width:min(720px, 100%); }
+.searchbar input { flex:1; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:#0f172a; color:#fff; outline:none; }
+.searchbar button { padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:#111c36; color:#fff; cursor:pointer; }
+.pill { padding:8px 12px; border-radius:999px; background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.25); color:#a7f3d0; font-size:12px; }
+.h2 { margin:14px 0 10px; font-size:18px; }
+.card { background:#0f172a; border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:14px; }
+.table { width:100%; border-collapse:collapse; font-size:13px; }
+.table th, .table td { padding:10px; border-bottom:1px solid rgba(255,255,255,.06); text-align:left; }
+.actions { margin-top:12px; display:flex; gap:10px; }
+.btn { display:inline-block; padding:10px 14px; border-radius:12px; background:#1d4ed8; color:#fff; text-decoration:none; border:none; cursor:pointer; }
+.btn.ghost { background:transparent; border:1px solid rgba(255,255,255,.12); }
+.textarea { width:100%; height:70vh; padding:12px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:#0b1220; color:#e5e7eb; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:12px; }
+.alert { padding:10px 12px; border-radius:12px; margin-bottom:10px; }
+.alert.ok { background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.25); color:#a7f3d0; }
+.alert.bad { background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.25); color:#fecaca; }
+.muted { color:#94a3b8; font-size:13px; margin-top:12px; }
+code { background:rgba(255,255,255,.06); padding:2px 6px; border-radius:8px; }
+
+/* ===== Poster grid (Home/Search) ===== */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap:14px;
+  align-items:start;
+}
+
+.card{
+  /* keep existing background/border/radius, but remove padding for poster-card layout */
+  padding:10px;
+  text-decoration:none;
+  color:#e5e7eb;
+  display:block;
+}
+
+.poster{
+  width:100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  background:#111827;
+  display:block;
+}
+
+.t{
+  margin-top:8px;
+  font-weight:650;
+  line-height:1.2;
+}
+
+.m, .src{
+  margin-top:4px;
+  font-size:12px;
+  color:#94a3b8;
+}
+
+/* ===== Make site mobile friendly ===== */
+@media (max-width: 900px){
+  .layout{ flex-direction:column; }
+
+  /* sidebar becomes top bar */
+  .sidebar{
+    width:100%;
+    padding:12px 14px;
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+
+  .brand{ margin:0; }
+
+  .nav{
+    display:inline-flex;
+    margin:0;
+    padding:8px 10px;
+    border-radius:999px;
+  }
+
+  .main{ padding:14px; }
+
+  .topbar{
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .searchbar{
+    width:100%;
+    max-width:none;
+  }
+
+  .pill{ width:auto; }
+}
+
+@media (max-width: 420px){
+  .grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:12px;
+  }
+}
