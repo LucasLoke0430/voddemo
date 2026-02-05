@@ -19,45 +19,64 @@ if ($p) {
 }
 ?>
 <!doctype html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/assets/app.css">
-  <title>Home</title>
+  <title>免费短视频分享大全 - 大中国</title>
 </head>
 <body>
 <div class="layout">
-  <aside class="sidebar">
-    <div class="brand">VOD Demo</div>
-    <a class="nav active" href="/home.php">首页</a>
-    <a class="nav" href="/search.php">搜索</a>
-    <a class="nav" href="/admin/sources.php">源管理</a>
-  </aside>
+  <header class="header">
+    <div class="header-content">
+      <div class="header-top">
+        <a href="/home.php" class="brand">免费短视频分享大全</a>
+        <form class="searchbar" action="/search.php" method="get">
+          <input name="q" placeholder="搜索影片 / 剧集..." />
+          <button type="submit">搜索</button>
+        </form>
+        <div class="header-actions">
+          <a href="/home.php" class="header-link">首页</a>
+          <a href="/search.php" class="header-link">搜索</a>
+          <a href="/admin/sources.php" class="header-link">源管理</a>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-item active" href="/home.php">首页</a>
+        <a class="nav-item" href="/search.php?type=电影片">电影片</a>
+        <a class="nav-item" href="/search.php?type=连续剧">连续剧</a>
+        <a class="nav-item" href="/search.php?type=动漫片">动漫片</a>
+        <a class="nav-item" href="/search.php?type=综艺片">综艺片</a>
+        <a class="nav-item" href="/search.php?type=短剧">短剧</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="main">
-    <div class="topbar">
-      <form class="searchbar" action="/search.php" method="get">
-        <input name="q" placeholder="搜索影片 / 剧集..." />
-        <button>搜索</button>
-      </form>
-
-      <div class="pill">
-        Best Source: <?=h($bestKey ? SourceManager::nameByKey($bestKey) : '-')?>
-      </div>
+    <div class="section-header">
+      <h2 class="h2">最新影片</h2>
+      <?php if ($bestKey): ?>
+        <span class="pill">最佳源: <?=h(SourceManager::nameByKey($bestKey))?></span>
+      <?php endif; ?>
     </div>
-
-    <h2 class="h2">热门</h2>
 
     <div class="grid">
       <?php foreach($items as $it): ?>
         <?php $srcName = SourceManager::nameByKey((string)($it['sourceKey'] ?? '')); ?>
         <a class="card" href="/detail.php?source=<?=urlencode($it['sourceKey'])?>&id=<?=urlencode($it['id'])?>">
-          <img class="poster" src="<?=h($it['poster'])?>" alt="">
-          <div class="t"><?=h($it['title'])?></div>
-          <div class="src"><?=h($srcName)?></div>
+          <img class="poster" src="<?=h($it['poster'] ?? '')?>" alt="<?=h($it['title'] ?? '')?>" loading="lazy">
+          <div class="card-info">
+            <div class="t"><?=h($it['title'] ?? '')?></div>
+            <div class="src"><?=h($srcName)?></div>
+          </div>
         </a>
       <?php endforeach; ?>
+      <?php if (empty($items)): ?>
+        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
+          暂无影片数据
+        </div>
+      <?php endif; ?>
     </div>
   </main>
 </div>
