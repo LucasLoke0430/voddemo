@@ -31,7 +31,7 @@ if ($p) {
   <header class="header">
     <div class="header-content">
       <div class="header-top">
-        <a href="/home.php" class="brand">免费短视频分享大全</a>
+        <a href="/home.php" class="brand">voddemo</a>
         <form class="searchbar" action="/search.php" method="get">
           <input name="q" placeholder="搜索影片 / 剧集..." />
           <button type="submit">搜索</button>
