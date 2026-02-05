@@ -24,7 +24,7 @@ if ($p) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/assets/app.css">
-  <title>免费短视频分享大全 - 大中国</title>
+  <title>voddemo</title>
 </head>
 <body>
 <div class="layout">
